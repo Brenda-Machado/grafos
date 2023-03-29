@@ -83,7 +83,8 @@ dos ındices informados no arquivo de entrada.
 Elabore um relatorio de uma pagina no formato PDF comentando para cada um dos exercıcios
 quais as estruturas de dados selecionadas, justificando as escolhas. Nao esqueca de informar os nomes dos integrantes
 da equipe.
-### Padrao de Arquivo de Entrada
+
+## Padrao de Arquivo de Entrada
 O arquivo de entrada deve estar no formato abaixo. 
 Na primeira linha, n e o numero de vertices. Nas linhas seguintes e antes da palavra “*edges”, ha uma listagem de rotulos dos vertices. Note que cada vertice possui um ındice de 1 a n. Esse ındice e importante, pois ele e utilizado nas definicoes das arestas. Depois da palavra “*edges” cada linha contera
 uma aresta. Por exemplo, na linha onde ha “a b valor do peso”, a e b sao os vertices que a aresta conecta, valor do peso
