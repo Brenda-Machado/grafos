@@ -32,7 +32,7 @@ No caso de duvidas, consulte o professor da disciplina.
 
 ## 2. [Buscas] (2,0pts) 
 Crie um programa que receba um arquivo de grafo e o ındice do vertice s como argumentos. O
-programa deve fazer uma busca em largura4 a partir de s e devera imprimir a saıda na tela, onde cada linha devera
+programa deve fazer uma busca em largura a partir de s e devera imprimir a saıda na tela, onde cada linha devera
 conter o nıvel seguido de “:” e a listagem de vertices encontrados naquele nıvel. O exemplo abaixo trata de uma
 saıda, na qual a busca se iniciou pelo vertice s no nıvel 0, depois prosseguiu nos vertices 3, 4 e 5 para o proximo
 nıvel. No nıvel seguinte, a busca encontrou os vertices 1, 2, 6 e 7.
