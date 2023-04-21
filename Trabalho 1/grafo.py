@@ -30,25 +30,37 @@ class Grafo:
         return vizinhos
     
     def haAresta(self, u, v):
-        if (u, v) in self.arestas or (v, u) in self.arestas:
-            return True
-        return False
+        return set((u, v)) in map(set, self.arestas)
+
     
     def peso(self, u, v):
         if self.haAresta(u, v):
-            return self.funcao[(u, v)]
+            return self.funcao.get((u, v), float('inf'))
         return float('inf')
+
     
     def ler(self, arquivo):
-        vertices = []
-        arestas = []
-        funcao = {}
-        with open(arquivo, 'r') as f:
-            for linha in f:
-                linha = linha.split()
-                if linha[0] == 'V':
-                    vertices.append(linha[1])
-                elif linha[0] == 'E':
-                    arestas.append((linha[1], linha[2]))
-                    funcao[(linha[1], linha[2])] = int(linha[3])
-        return Grafo(vertices, arestas, funcao)
+        with open(arquivo, "r") as f:
+
+            header = f.readline().split()
+            num_vertices = int(header[1])
+            
+            vertices = {}
+            for i in range(num_vertices):
+                line = f.readline().split()
+                vertices[int(line[0])] = line[1]
+            
+            arestas = []
+            funcao = {}
+            line = f.readline().split()
+            while line and line[0] == "*edges":
+                line = f.readline().split()
+                while line:
+                    aresta = (int(line[0]), int(line[1]))
+                    arestas.append(aresta)
+                    w = float(line[2])
+                    funcao[aresta] = w
+                    line = f.readline().split()
+            
+            return Grafo(vertices, arestas, funcao)
+    

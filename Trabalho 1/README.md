@@ -25,7 +25,7 @@ mapeia o peso de cada aresta {u, v} ∈ E. As operacoes/metodos contemplados par
 + vizinhos(v): retorna os vizinhos do vertice v;
 + haAresta(u, v): se {u, v} ∈ E, retorna verdadeiro; se nao existir, retorna falso;
 + peso(u, v): se {u, v} ∈ E, retorna o peso da aresta {u, v}; se nao existir, retorna um valor infinito positivo;
-+ ler(arquivo)2
++ ler(arquivo)
 Deve carregar um grafo a partir de um arquivo no formato especificado ao final deste documento.
 IMPORTANTE: As operacoes/metodos deverao ter complexidade de tempo computacional O(1) quando possıvel.
 No caso de duvidas, consulte o professor da disciplina.
