@@ -5,10 +5,10 @@ Exercício 1 - Representação de grafos
 """
 
 class Grafo:
-    def __init__(self, vertices, arestas, funcao):
-        self.vertices = vertices
-        self.arestas = arestas 
-        self.funcao = funcao 
+    def __init__(self):
+        self.vertices = {}
+        self.arestas = []
+        self.funcao = {} 
     
     def qtdVertices(self):
         return len(self.vertices)

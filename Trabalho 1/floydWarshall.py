@@ -4,8 +4,10 @@ Aluna: Brenda Silva Machado
 Exercício 5 - Algoritmo de Floyd-Warshall
 """
 
+from grafo import Grafo
+
 class FloydWarshall:
-    def __init__(self, grafo):
+    def __init__(self, grafo: Grafo):
         self.grafo = grafo
         self.distancia = [[float("inf") for _ in range(grafo.qtdVertices())] for _ in range(grafo.qtdVertices())]
         self.nodo = [[None for _ in range(grafo.qtdVertices())] for _ in range(grafo.qtdVertices())]

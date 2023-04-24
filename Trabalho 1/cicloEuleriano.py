@@ -4,8 +4,10 @@ Aluna: Brenda Silva Machado
 Exercício 3 - Ciclo Euleriano
 """
 
+from grafo import Grafo
+
 class CicloEuleriano:
-    def __init__(self, grafo):
+    def __init__(self, grafo: Grafo):
         self.grafo = grafo
         self.ciclo = []
         self.visitados = []

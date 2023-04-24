@@ -4,14 +4,22 @@ from cicloEuleriano import CicloEuleriano
 from bellmanFord import BellmanFord
 from floydWarshall import FloydWarshall
 
-grafo = Grafo(None, None, None)
-grafo = grafo.ler('/home/brenda/grafos/Trabalho 1/teste.txt')
+grafo = Grafo()
+grafo = grafo.ler('teste.txt')
+
+# Teste Busca em Largura
 # busca = BuscaLargura(grafo, 1)
 # busca.busca()
+
+# Teste Ciclo Euleriano
 # ciclo = CicloEuleriano(grafo)
 # ciclo.imprimir()
+
+# Teste Bellman-Ford 
 # bellman = BellmanFord(grafo, 1)
 # bellman.imprimir()
-floyd = FloydWarshall(grafo)
-floyd.buscarMenorCaminho()
-floyd.imprimir()
+
+# Teste Floyd-Warshall
+# floyd = FloydWarshall(grafo)
+# floyd.buscarMenorCaminho()
+# floyd.imprimir()

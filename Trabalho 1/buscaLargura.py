@@ -4,8 +4,10 @@ Aluna: Brenda Silva Machado
 Exercício 2 - Busca em Largura
 """
 
+from grafo import Grafo
+
 class BuscaLargura:
-    def __init__(self, grafo, s):
+    def __init__(self, grafo : Grafo, s):
         self.grafo = grafo
         self.s = s
         self.distancia = {}
