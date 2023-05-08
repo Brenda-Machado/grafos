@@ -64,3 +64,10 @@ class Grafo:
             
             return Grafo(vertices, arestas, funcao)
     
+    """TO-DO
+    Testar isso aqui
+    """
+    def transposto(self):
+        arestas = [(v, u) for (u, v) in self.arestas]
+        return Grafo(self.vertices, arestas, self.funcao)
+    
