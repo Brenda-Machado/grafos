@@ -19,13 +19,9 @@ class compFortementeConexas:
     def __init__(self, grafo: Grafo):
         self.grafo = grafo
         self.T = DFS(grafo)
-        # self.T_inv = self.inverterT()
         self.G_trans = self.grafo.transposto() # TO-DO
-        self.T_inv = DFS.dfs_adaptado()
+        self.T_inv = DFS.dfs_adaptado(self.G_trans) # TO-DO
+        self.componentes = {}
     
-    def inverterT(self):
-        T_inv = [0] * len(self.T)
-        for i in range(len(self.T)):
-            T_inv[self.T[i]-1] = i+1
-        return T_inv
+
     

@@ -28,7 +28,7 @@ Crie um programa que receba um grafo dirigido e nao-ponderado como argumento. Ao
 > 1,2,6,7
 
 ## 2. [Ordenacao Topologica] (3,0pts) 
-Crie um programa que receba um arquivo de grafo dirigido nao-ponderado com vertices rotulados como argumento. O programa deve fazer executar uma Ordena ̧c ̃ao Topologica. Depois exiba a ordem topologica, utilizando os rotulos de cada vertice, como no exemplo abaixo:
+Crie um programa que receba um arquivo de grafo dirigido nao-ponderado com vertices rotulados como argumento. O programa deve fazer executar uma Ordenacao Topologica. Depois exiba a ordem topologica, utilizando os rotulos de cada vertice, como no exemplo abaixo:
 
 > Acordar → DesligarDespertador → CalcarSandalias → LevantarDaCama → TomarBanho → EscovarOsDentes → PrepararCafe → PrepararOvosMexidos → TomarCafeDaManha → LavarLoucas → EscovarOsDentes → CalcarMeias → VestirUniforme → ColocarSapato → FecharCasa.
 
