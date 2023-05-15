@@ -1,7 +1,7 @@
 """
-Trabalho 1 - Grafos
+Trabalho 2 - Grafos
 Aluna: Brenda Silva Machado
-Exercício 1 - Representação de grafos
+Representação de grafos
 """
 
 class Grafo:
@@ -17,6 +17,9 @@ class Grafo:
     def qtdArestas(self):
         return len(self.arestas)
     
+    def qtdArcos(self):
+        return len(self.arcos)
+    
     def grau(self, v):
         return len(self.vizinhos(v))
     
@@ -25,9 +28,14 @@ class Grafo:
     
     def vizinhos(self, v):
         vizinhos = []
-        for aresta in self.arestas:
-            if v in aresta:
-                vizinhos.append(aresta[0] if aresta[0] != v else aresta[1])
+        if self.arestas:
+            for aresta in self.arestas:
+                if v in aresta:
+                    vizinhos.append(aresta[0] if aresta[0] != v else aresta[1])
+        else:
+            for arco in self.arcos:
+                if v == arco[0]:
+                    vizinhos.append(arco[1])
         return vizinhos
     
     def haAresta(self, u, v):
@@ -66,7 +74,7 @@ class Grafo:
                     w = float(line[2])
                     funcao[aresta] = w
                     line = f.readline().split()
-            while line and line[0] == "arcs":
+            while line and line[0] == "*arcs":
                 line = f.readline().split()
                 while line:
                     arco = (int(line[0]), int(line[1]))
@@ -74,10 +82,9 @@ class Grafo:
                     w = float(line[2])
                     funcao[arco] = w
                     line = f.readline().split()
-            
             return Grafo(vertices, arestas, funcao, arcos)
     
     def transposto(self):
-        arestas = [(v, u) for (u, v) in self.arestas]
-        return Grafo(self.vertices, arestas, self.funcao)
+        arcos = [(v, u) for (u, v) in self.arcos]
+        return Grafo(self.vertices, self.arestas, self.funcao, arcos)
     

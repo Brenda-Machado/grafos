@@ -4,42 +4,46 @@ Aluna: Brenda Silva Machado
 Algoritmo Auxiliar DFS
 """
 
-from Trabalho1.grafo import Grafo
-
-""" TO-DO
-[] Arrumar a parte de OO
-[] Arrumar os tipos das variáveis
-"""
+from grafo import Grafo
 
 class DFS: 
     def __init__(self, grafo: Grafo):
         self.grafo = grafo
-        self.visitados = [False] * grafo.qtdVertices()
-        self.tempo = 0
-        self.T = [0] * grafo.qtdVertices()
-        self.A = []
-        self.O = []
+        self.visitados = []
+        self.tempo_atual = 0
+        self.tempos = {}
+        self.fim = {}
+        self.antecessores = {}
+        for v in self.grafo.vertices:
+            self.tempos[v] = float('inf')
+            self.fim[v] = float('inf')
+            self.antecessores[v] = None
     
-    def dfs_componentes(self):
+    def componentes(self):
         for i in range(self.grafo.qtdVertices()):
-            if not self.visitados[i]:
-                self.dfs_visit(i)
-        return self.T
+            if i not in self.visitados:
+                self.visit(i)
+        return self.tempos, self.fim, self.antecessores
 
-    def dfs_visit(self, v):
-        self.visitados[v] = True
-        self.tempo += 1
+    def visit(self, v):
+        self.visitados.append(v)
+        self.tempo_atual += 1
+        self.tempos[v] = self.tempo_atual
         for u in self.grafo.vizinhos(v):
-            if not self.visitados[u]:
-                self.dfs_visit(u)
-        self.tempo += 1
-        self.T[v] = self.tempo
+            if u not in self.visitados:
+                self.antecessores[u] = v
+                self.visit(u)
+        self.tempo_atual += 1
+        self.fim[v] = self.tempo_atual
 
-    def dfs_adaptado(self):
+    def adaptado(self, fim):
         for i in range(self.grafo.qtdVertices()):
-            if not self.visitados[i]:
-                self.dfs_visit(i)
-        return self.A
+            v = fim[i]
+            if v not in self.visitados:
+                self.visit(v)
+        return self.tempos, self.fim, self.antecessores
+
+                
     
 
 

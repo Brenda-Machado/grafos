@@ -4,7 +4,7 @@ from cicloEuleriano import CicloEuleriano
 from bellmanFord import BellmanFord
 from floydWarshall import FloydWarshall
 
-grafo = Grafo(None, None, None)
+grafo = Grafo(None, None, None, None)
 grafo = grafo.ler('teste.txt')
 
 # Teste Busca em Largura

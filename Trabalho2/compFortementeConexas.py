@@ -4,24 +4,32 @@ Aluna: Brenda Silva Machado
 Exercício 1 - Representação de Componentes Fortemente Conexas
 """
 
-from Trabalho1.grafo import Grafo
+from grafo import Grafo
 from DFS import DFS
-
-
-# 1. [Componentes Fortemente Conexas] (3,0pts) 
-#Crie um programa que receba um grafo dirigido e nao-ponderado como argumento. Ao final, imprima na tela as componentes fortemente conexas desse grafo. 
-# O exemplo abaixo trata de uma saıda valida, na qual identificou-se duas componentes fortemente conexas {3, 4, 5} e {1, 2, 6, 7}.
-
-##> 3,4,5
-##> 1,2,6,7
 
 class compFortementeConexas:
     def __init__(self, grafo: Grafo):
         self.grafo = grafo
-        self.T = DFS(grafo)
-        self.G_trans = self.grafo.transposto() # TO-DO
-        self.T_inv = DFS.dfs_adaptado(self.G_trans) # TO-DO
-        self.componentes = {}
+        self.dfs = DFS(self.grafo)
+        self.antecessores = [None] * grafo.qtdVertices()
+        self.fim = [float('inf')] * grafo.qtdVertices()
+        self.tempos = [float('inf')] * grafo.qtdVertices()
+        self.grafo_t = grafo.transposto()
+        self.dfs_t = DFS(self.grafo_t)
+        self.antecessores_t = [None] * grafo.qtdVertices()
+
+    def run(self):
+        tempos, fim, antecessores = self.dfs.componentes()
+        self.tempos = tempos
+        self.fim = fim
+        self.antecessores = antecessores
+        tempos_t, fim_t, antecessores_t = self.dfs_t.adaptado(self.fim)
+        self.antecessores_t = antecessores_t
+
+    def print(self):
+        pass
+
+
     
 
     
