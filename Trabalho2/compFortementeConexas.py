@@ -23,13 +23,30 @@ class compFortementeConexas:
         self.tempos = tempos
         self.fim = fim
         self.antecessores = antecessores
-        tempos_t, fim_t, antecessores_t = self.dfs_t.adaptado(self.fim)
+
+        tempos_t, fim_t, antecessores_t = self.dfs_t.componentes()
         self.antecessores_t = antecessores_t
 
     def print(self):
-        pass
+        componentes = []
+        visitados = []
 
+        for v in self.grafo.vertices:
+            if v not in visitados:
+                componente = []
+                self.map_comp(v, visitados, componente)
+                componentes.append(componente)
 
-    
+        for componente in componentes:
+            print("{" + ", ".join(str(v) for v in componente) + "}")
 
-    
+    def map_comp(self, v, visitados, componente):
+        visitados.append(v)
+        componente.append(v)
+
+        for vizinho in self.grafo_t.vizinhos(v):
+            if vizinho not in visitados:
+                self.map_comp(vizinho, visitados, componente)
+
+    def get_antecessores(self):
+        return [self.antecessores[v] + 1 if self.antecessores[v] is not None else None for v in range(self.grafo.qtdVertices())]

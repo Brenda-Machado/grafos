@@ -6,7 +6,7 @@ Algoritmo Auxiliar DFS
 
 from grafo import Grafo
 
-class DFS: 
+class DFS:
     def __init__(self, grafo: Grafo):
         self.grafo = grafo
         self.visitados = []
@@ -37,11 +37,11 @@ class DFS:
         self.fim[v] = self.tempo_atual
 
     def adaptado(self, fim):
-        for i in range(self.grafo.qtdVertices()):
-            v = fim[i]
+        for v in fim:
             if v not in self.visitados:
                 self.visit(v)
         return self.tempos, self.fim, self.antecessores
+
 
                 
     
