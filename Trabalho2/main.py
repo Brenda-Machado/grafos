@@ -1,3 +1,7 @@
+
+""" Arquivo de teste para demonstrar o funcionamento dos algoritmos
+"""
+
 from compFortementeConexas import compFortementeConexas
 from ordenacaoTopologica import ordenacaoTopologica
 from prim import Prim
