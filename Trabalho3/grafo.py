@@ -1,5 +1,5 @@
 """
-Trabalho 2 - Grafos
+Trabalho 3 - Grafos
 Aluna: Brenda Silva Machado
 Representação de grafos
 """
@@ -13,6 +13,26 @@ class Grafo:
     
     def getVertices(self):
         return self.vertices
+    
+    def getS(self):
+        for v in self.vertices:
+            if self.vertices[v] == 's':
+                return v
+    def getT(self):
+        for v in self.vertices:
+            if self.vertices[v] == 't':
+                return v
+    
+    def removerArco(self, u, v):
+        if self.haArco(u, v):
+            self.arcos.remove((u, v))
+    
+    def adicionarArco(self, u, v):
+        if not self.haArco(u, v):
+            self.arcos.append((u, v))
+    
+    def adicionarPeso(self, u, v, peso):
+        self.funcao[(u, v)] = peso
     
     def getFuncao(self):
         return self.funcao
@@ -95,7 +115,6 @@ class Grafo:
                     line = f.readline().split()
             return Grafo(vertices, arestas, funcao, arcos)
         
-
     def transposto(self):
         arcos = [(v, u) for (u, v) in self.arcos]
         return Grafo(self.vertices, self.arestas, self.funcao, arcos)
