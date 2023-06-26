@@ -2,7 +2,7 @@ from grafo import Grafo
 from edmondsKarp import edmondsKarp
 from hopcroftKarp import hopcroftKarp
 from grafoBipartido import grafoBipartido
-from lawler import 
+from lawler import Lawler
 
 # TESTE FLUXO MÁXIMO F = 2
 # grafo = Grafo(None, None, None, None)
@@ -21,5 +21,7 @@ from lawler import
 # TESTE COLORAÇÃO M = 3
 grafo = Grafo(None, None, None, None)
 grafo = grafo.ler('cor3.txt')
+lawler = Lawler(grafo)
+print(lawler.calculaColoracaoMinima())
 
 

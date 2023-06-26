@@ -14,6 +14,9 @@ class Grafo:
     def getVertices(self):
         return self.vertices
     
+    def getArestas(self):
+        return self.arestas
+    
     def getS(self):
         for v in self.vertices:
             if self.vertices[v] == 's':
