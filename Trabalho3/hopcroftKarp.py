@@ -49,6 +49,8 @@ class hopcroftKarp():
         return self.mate
 
     def calcularMaxMatching(self):
+        print(self.X)
+        print(self.Y)
         max_matching = 0
         while self.bfs():
             for x in self.X:
@@ -68,6 +70,7 @@ class hopcroftKarp():
         self.distancias['null'] = float('inf')
         while q:
             x = q.popleft()
+            print(self.distancias)
             if self.distancias[x] < self.distancias['null']:
                 for y in self.grafo.vizinhos(x):
                     if self.mate[y] is not None and self.distancias[self.mate[y]] == float('inf'):

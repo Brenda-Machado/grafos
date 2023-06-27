@@ -35,7 +35,6 @@ class edmondsKarp():
         fluxo_maximo = 0
         while True:
             caminho = self.buscarCaminho()
-            print(caminho)
             if not caminho:
                 break
             fluxo_maximo += int(self.aumentarFluxo(caminho))
